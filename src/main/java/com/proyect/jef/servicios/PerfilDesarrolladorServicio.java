@@ -5,6 +5,7 @@ import com.proyect.jef.entidades.PerfilDesarrollador;
 import com.proyect.jef.excepciones.ErrorJef;
 import com.proyect.jef.repositorios.PerfilDesarrolladorRepositorio;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -120,9 +121,8 @@ public class PerfilDesarrolladorServicio {
         return perfilDesarrollador.findById(idPerfil).get();
     }
     
-    public PerfilDesarrollador buscarPorNombre(String nombre) throws ErrorJef{
-        return perfilDesarrollador.findByNombre(nombre);
+    
+    public Collection<PerfilDesarrollador> buscarTodos() throws ErrorJef{
+        return perfilDesarrollador.findAll();
     }
-    
-    
 }
