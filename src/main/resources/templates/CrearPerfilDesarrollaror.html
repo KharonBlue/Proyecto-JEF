@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+</head>
+<body>
+    <div>
+        <form action="/creacion_desarrollador" method="POST" enctype="multipart/form-data">
+            <label>Nombre</label>
+            <input type="text" name="nombre">
+            </br>
+            <label>Link externo</label>
+            <input type="text" name="link">
+            </br>
+            <label>Descripción</label>
+            <input type="text" name="descripcion">
+            </br>
+            <label >Imagen</label>
+            <input type="file" name="archivo">
+            </br>
+            <button type="submit"><a href="/usuario">Crear mi perfil</a></button>
+            <button><a href="/">Inicio</a></button>
+        </form>
+    </div>
+</body>
+</html>

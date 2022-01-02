@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicio</title>
 </head>
+
 <body>
     <header>
-        <h1>Bienvenido a mi pagina Web</h1>
+        <h1>Bienvenido al proyecto JEF</h1>
     </header>
-    <div style="padding: 50px;"></div>
-    <div id="perfil">
-        <a href="/creacionPerfil">Crear tu perfil</a>
-        <a href="/editarPerfil">Editar tu perfil</a>
-    </div>
+
+    <section>
+        <h2>Objetivo de JEF</h2>
+        <p>Con el proyecto JEF buscamos incorporar la facilidad a la hora de buscar tu empleo como desarrollador,
+            <br> sin comprometer demasiado la información del usuario y garantizando que su perfil solo sea visto
+            <br> por empresas que busquen su puesto especifico.
+        </p>
+    </section>
+
+    <section>
+        <h2>Iniciar en Jef</h2>
+        <div id="perfil">
+            <button><a href="/creacion_usuario">Crear tu perfil de usuario</a></button>
+            <button><a href="/creacion_empresa">Crear tu perfil de empresa</a></button>
+        </div>
+    </section>
+    </br>
+    <footer>
+        <h3>Síguenos</h3>
+        <ul type="none">
+            <li><button><a href=""></a></button></li>
+            <li><button><a href=""></a></button></li>
+            <li><button><a href=""></a></button></li>
+        </ul>
+        <div><a href="">Términos y condiciones </a> <a href=""> Políticas de privacidad</a></div>
+    </footer>
 
 </body>
+
 </html>

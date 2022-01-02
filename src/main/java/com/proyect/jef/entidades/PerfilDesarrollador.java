@@ -1,13 +1,8 @@
 package com.proyect.jef.entidades;
 
 // @author Kharon estudio Web
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -35,4 +30,7 @@ public class PerfilDesarrollador {
     private boolean perfilCompleto;
     @Column(name = "Perfil_Activo")
     private boolean perfilActivo;
+    @OneToOne
+    @JoinColumn(name = "Id_Usuario")
+    private Usuario usuario;
 }

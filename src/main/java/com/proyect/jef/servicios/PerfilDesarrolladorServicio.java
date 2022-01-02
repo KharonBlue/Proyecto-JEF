@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
+
 // @author Kharon estudio Web
 @Service
 public class PerfilDesarrolladorServicio {
@@ -20,6 +22,7 @@ public class PerfilDesarrolladorServicio {
     @Autowired
     private ImagenServicio imgServicio;
 
+    @Transactional
     public PerfilDesarrollador crearPerfilDesarrollador(String nombre, String linkExterno, String descripcion, MultipartFile archivo) throws ErrorJef, IOException {
         validarDatosCreacion(nombre, linkExterno);
         PerfilDesarrollador perfil = new PerfilDesarrollador();
@@ -36,6 +39,7 @@ public class PerfilDesarrolladorServicio {
         perfil.setImagen(img);
         perfil.setPerfilActivo(true);
         return perfilDesarrollador.save(perfil);
+
     }
 
     public void validarDatosCreacion(String nombre, String linkExterno) throws ErrorJef {
@@ -52,7 +56,7 @@ public class PerfilDesarrolladorServicio {
             throw new ErrorJef("El campo link externo es necesario para que las empresar puedan obtener más información");
         }
     }
-
+    @Transactional
     public PerfilDesarrollador actualizarPerfilDesarrollador(String idPerfil, String nombre, String linkExterno, String descripcion, MultipartFile archivo) throws ErrorJef, IOException {
         if (idPerfil != null)
         {
@@ -92,7 +96,8 @@ public class PerfilDesarrolladorServicio {
             return null;
         }
     }
-    
+
+    @Transactional
     public void marcarInactivo(String idPerfil) throws ErrorJef{
         if(idPerfil!=null){
             Optional<PerfilDesarrollador> resultado = perfilDesarrollador.findById(idPerfil);
@@ -104,7 +109,8 @@ public class PerfilDesarrolladorServicio {
             }
         }
     }
-    
+
+    @Transactional
     public void eliminarPerfilDesarrollador(String idPerfil) throws ErrorJef{
         if(idPerfil!=null){
             Optional<PerfilDesarrollador> resultado = perfilDesarrollador.findById(idPerfil);
@@ -116,12 +122,13 @@ public class PerfilDesarrolladorServicio {
             }
         }
     }
-    
+
+    @Transactional
     public PerfilDesarrollador buscarPorId(String idPerfil) throws ErrorJef{
         return perfilDesarrollador.findById(idPerfil).get();
     }
-    
-    
+
+    @Transactional
     public Collection<PerfilDesarrollador> buscarTodos() throws ErrorJef{
         return perfilDesarrollador.findAll();
     }
